@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sai Ram Pandari | Portfolio</title>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#about" class="nav-logo">Sai Ram Pandari</a>
+      <ul class="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#resume" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="header-section" id="about">
+    <div class="container header-container">
+      <div class="header-left">
+        <h1 class="header-title">Sai Ram Pandari</h1>
+        <p class="header-subtitle">
+          Biomedical Health Informatics | Clinical Research | ML Developer
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section id="experience" class="section">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date">Dec 2021 - Jun 2023</span>
+          <h3>Clinical Research Coordinator</h3>
+          <h4>Gleneagles AWARE Hospital, Hyderabad, IND</h4>
+          <p>
+            Managed clinical trial lifecycle, ensured compliance with GCP and ethical standards. Coordinated patient recruitment, documentation, and monitoring.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Aug 2019 - Nov 2021</span>
+          <h3>Pharmacy Intern</h3>
+          <h4>City Hospital, Hyderabad, IND</h4>
+          <p>
+            Assisted pharmacists with medication management, inventory control, and patient counseling.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card">
+          <h3>Early Sepsis Prediction</h3>
+          <p>
+            Developed ML models (Random Forest, XGBoost, SVM) to predict early sepsis in ICU patients with 95.5% accuracy.
+          </p>
+          <p><strong>Technologies:</strong> Python, scikit-learn, XGBoost, Pandas</p>
+          <p><a href="https://github.com/yourusername/sepsis-prediction" target="_blank" class="project-link">View on GitHub</a></p>
+        </article>
+
+        <article class="project-card">
+          <h3>CDSS for Diabetes</h3>
+          <p>
+            Built a Clinical Decision Support System to help healthcare providers manage diabetes using EHR data and personalized analytics.
+          </p>
+          <p><strong>Technologies:</strong> Python, Flask, SQL, Machine Learning</p>
+          <p><a href="https://github.com/yourusername/cdss-diabetes" target="_blank" class="project-link">View on GitHub</a></p>
+        </article>
+
+        <article class="project-card">
+          <h3>HPLC Method Validation</h3>
+          <p>
+            Conducted method validation for quantifying Doxorubicin and Daunorubicin using RP-HPLC for analytical accuracy.
+          </p>
+          <p><strong>Technologies:</strong> RP-HPLC, Analytical Chemistry</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="resume" class="section">
+      <h2 class="section-title">Resume</h2>
+      <p>
+        <a href="Sai_Ram_Resume.pdf" download class="btn">
+          <i class="fa fa-download"></i> Download My Resume (PDF)
+        </a>
+      </p>
+    </section>
+
+    <section id="contact" class="section">
+      <h2 class="section-title">Contact</h2>
+      <p>Email: <a href="mailto:saichitti67@gmail.com" class="contact-link">saichitti67@gmail.com</a></p>
+      <p>
+        GitHub:
+        <a href="https://github.com/yourusername" target="_blank" class="contact-link"
+          ><i class="fab fa-github"></i> github.com/yourusername</a
+        >
+      </p>
+      <p>
+        LinkedIn:
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link"
+          ><i class="fab fa-linkedin"></i> linkedin.com/in/yourprofile</a
+        >
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Sai Ram Pandari</p>
+  </footer>
+
+  <script>
+    // Smooth scrolling for nav links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Fade-in animation on scroll
+    const faders = document.querySelectorAll('.section, .project-card, .timeline-item');
+
+    const appearOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('appear');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+
+    // Navbar shadow on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.navbar');
+      if(window.scrollY > 10) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
